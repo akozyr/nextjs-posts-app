@@ -43,7 +43,7 @@ export default function LoginPage() {
               </div>
             )}
           </div>
-          {state?.errorMessage && <ErrorAlert title="Invalid credentials!" reason="The pair of email and password is not correct." />}
+          {state?.errorMessage && <ErrorAlert key={Date.now()} title="Invalid credentials!" reason="The pair of email and password is not correct." />}
           <button
             disabled={pending}
             type="submit"

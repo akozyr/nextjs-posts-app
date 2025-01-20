@@ -1,9 +1,10 @@
 'use server';
 
 import { createHash } from "node:crypto";
-import { createSession } from "../lib/session";
-import { redirect } from "next/navigation";
 import { z } from "zod";
+import { redirect } from "next/navigation";
+import { createSession } from "../lib/session";
+import { routes } from "../../routes";
 
 export type FormState = {
   errors?: {
@@ -34,7 +35,7 @@ export async function login(previousState: FormState, formData: FormData): Promi
   }
 
   await createSession(email);
-  redirect('/');
+  redirect(routes.posts);
 }
 
 const LoginFormSchema = z.object({
